@@ -1,0 +1,46 @@
+.btn-sign {
+  padding: 8px 17px;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #e50914;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  margin-right: 0.7rem;
+}
+
+#nav-dropdown-menu {
+  background-color: #fbffe2;
+}
+
+.nav-category-regular {
+  margin-left: 25px;
+  font-size: 1rem;
+  font-weight: 500px;
+  color: black;
+  margin-bottom: auto;
+}
+
+.nav-category-regular:hover {
+  text-decoration: none;
+  color: #e50914;
+}
+
+.btn-user-image {
+  margin-left: 10px;
+  margin-bottom: 2px;
+  width: 20px;
+  height: 19px;
+}
+
+.fire-sales {
+  width: 20px;
+  height: 19px;
+}
+
+@media (max-width: 574px) {
+  .btn-sign {
+    margin-top: 10px;
+  }
+}
