@@ -131,6 +131,15 @@ export const NavBar = () => {
               />
             </button>
           </form>
+          <button
+            onClick={() => {
+              fetch("/items")
+                .then((resp) => resp.json())
+                .then((data) => console.log(data));
+            }}
+          >
+            Testing
+          </button>
         </div>
       </nav>
     </div>

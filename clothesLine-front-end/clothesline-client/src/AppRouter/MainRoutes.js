@@ -5,6 +5,7 @@ import Home from "../Home/Home";
 import Signup from "../signup/Signup";
 import "./mainScreen.css";
 import CardList from "../CardList/CardList";
+import Row from "../Row/Row";
 
 const MainRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const MainRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<Signup />}></Route>
           <Route path="/item" element={<CardList />} />
+          <Route path="/row" element={<Row />} />
         </Routes>
       </div>
     </>
