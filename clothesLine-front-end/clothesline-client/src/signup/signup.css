@@ -5,7 +5,9 @@
   margin-top: 150px;
   margin-left: auto;
   margin-right: auto;
-  background: rgba(240, 176, 176, 0.8);
+  color: white;
+
+  background: linear-gradient(147deg, #000000 0%, #04619f 74%);
 }
 
 /* 
@@ -63,3 +65,40 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+/* @media (max-width: 965) {
+  .signScreen {
+    width: 400px;
+    height: 40px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 965) {
+  .signScreen {
+    width: 400px;
+    height: 40px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* @media (min-height: 600px), (min-width: 1024px) {
+  .signScreen {
+    width: 400px;
+    height: 400px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+} */
+/* @media (min-height: 640px), (min-width: 360px) {
+  .signScreen {
+    width: 350px;
+    height: 400px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+} */

@@ -13,7 +13,7 @@ export const NavBar = () => {
   return (
     <div className="container-va">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand name-store" to="/">
           ClothesLine
         </NavLink>
         <button

@@ -1,0 +1,21 @@
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+}
+.cards-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.details-product > img {
+  width: 600px;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+.details-product {
+  justify-content: space-between;
+}
+
+.like-heart {
+  width: 2px;
+}

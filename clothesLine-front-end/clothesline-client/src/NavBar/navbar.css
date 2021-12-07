@@ -10,6 +10,11 @@
   margin-right: 0.7rem;
 }
 
+.btn-sign {
+  background-color: #000000;
+  background: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+}
+
 #nav-dropdown-menu {
   background-color: #fbffe2;
 }
@@ -43,4 +48,8 @@
   .btn-sign {
     margin-top: 10px;
   }
+}
+
+.name-store {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }

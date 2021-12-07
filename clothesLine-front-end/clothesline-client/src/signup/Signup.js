@@ -11,7 +11,7 @@ const SignInScreen = () => {
   };
 
   return (
-    <div className="signScreen">
+    <header className="signScreen">
       <form>
         <h1>Sign In</h1>
         <input ref={emailRef} placeholder="Email" type="email" />
@@ -32,7 +32,7 @@ const SignInScreen = () => {
           </span>
         </h4>
       </form>
-    </div>
+    </header>
   );
 };
 
