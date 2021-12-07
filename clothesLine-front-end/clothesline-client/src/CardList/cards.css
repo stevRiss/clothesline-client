@@ -1,21 +1,19 @@
-.cards-container {
-  display: flex;
-  justify-content: space-between;
+.container {
+  /* width: 100%;
+  height: 100%; */
+  padding-top: 10px;
+  display: grid;
+  display: inline-block;
 }
-.cards-container {
-  width: 100%;
-  height: 100vh;
+.details-product {
+  background-color: red;
+}
+.description-product {
+  background-color: red;
 }
 
 .details-product > img {
-  width: 600px;
+  width: 300px;
   margin-top: 4rem;
   margin-bottom: 1rem;
-}
-.details-product {
-  justify-content: space-between;
-}
-
-.like-heart {
-  width: 2px;
 }
