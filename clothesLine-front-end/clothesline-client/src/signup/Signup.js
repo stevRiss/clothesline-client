@@ -10,24 +10,23 @@ const SignInScreen = () => {
     navigate("/home", { replace: true });
   };
 
+  const handleRegister = () => {
+    navigate("/signup", { replace: true });
+  };
+
   return (
-    <header className="signScreen">
+    <header className="signScreen animate__animated animate__fadeInLeftBig">
       <form>
-        <h1>Sign In</h1>
+        <h1>Login</h1>
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="Password" />
         <button type="submit" onClick={handleSingIn}>
-          Sign In
+          Login
         </button>
 
         <h4>
           <span className="signUp_color_gray">Welcome? </span>{" "}
-          <span
-            className="signupScreen_link"
-            onClick={() => {
-              console.log("register");
-            }}
-          >
+          <span className="signupScreen_link" onClick={handleRegister}>
             Sign Up now.
           </span>
         </h4>

@@ -16,7 +16,7 @@
 }
 
 #nav-dropdown-menu {
-  background-color: #fbffe2;
+  background-color: white;
 }
 
 .nav-category-regular {
@@ -29,7 +29,7 @@
 
 .nav-category-regular:hover {
   text-decoration: none;
-  color: #e50914;
+  color: #84dfff;
 }
 
 .btn-user-image {

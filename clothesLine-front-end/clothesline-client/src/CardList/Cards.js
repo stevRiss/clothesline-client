@@ -1,41 +1,63 @@
 import React from "react";
 import "./cards.css";
+import "../NavBar/navbar.css";
 
 const Cards = () => {
   return (
-    <div className="container">
-      {/* <div className="row"> */}
-        <div className="details-product">
-          <img
-            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=80"
-            alt="testing"
-          />
-          <div className="description-product">
-            <h1>Name of the product</h1>
-            <h2>Size:</h2>
-            <h3>Colors available:</h3>
+    <div class="container">
+      <div class="col-md-12">
+        <section class="panel">
+          <div class="panel-body">
+            <div class="col-md-6">
+              <div class="pro-img-details">
+                <img
+                  className="image-item"
+                  src="https://pyxis.nymag.com/v1/imgs/a98/d0a/ad37aae9d281b562d1afe26fdc8a28cbd6.rsquare.w600.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4 class="pro-d-title">
+                <h1 class="">Leopard Shirt Dress</h1>
+              </h4>
+              <p>
+                Praesent ac condimentum felis. Nulla at nisl orci, at dignissim
+                dolor, The best product descriptions address your ideal buyer
+                directly and personally. The best product descriptions address
+                your ideal buyer directly and personally.
+              </p>
 
-            <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-              <i class="fas fa-shopping-cart pr-2"></i>Add to cart
-            </button>
-            <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-              <i class="fas fa-info-circle pr-2"></i>Details
-            </button>
+              <div class="m-bot15">
+                {" "}
+                <strong>Price : </strong> <span class="amount-old">$544</span>{" "}
+                <span class="pro-price"> $300.00</span>
+              </div>
+              <div class="form-group">
+                <label>Quantity</label>
+                <input
+                  type="quantiy"
+                  placeholder="1"
+                  class="form-control quantity"
+                />
+              </div>
+              <p>
+                <button class="btn-sign" type="button">
+                  <i class="fa fa-shopping-cart"></i> Add to Cart
+                </button>
+              </p>
+            </div>
           </div>
-          
-          <div className="seller-details">
-            <h3>Seller Name</h3>
-            <p>
-              Nostrud tempor deserunt qui elit voluptate occaecat deserunt est
-              qui minim aliquip ea. Proident nostrud sint ex labore minim minim
-              dolor ea elit ad laborum non consectetur. Est culpa labore dolore
-              Lorem proident incididunt dolore deserunt magna ea in. Adipisicing
-              anim est in laborum excepteur.lorem ipsum
-            </p>
-          </div>
-        </div>
-        
-      {/* </div> */}
+        </section>
+      </div>
+      <div className="side-div">
+        <img
+          className="animate__animated animate__rubberBand"
+          id="thanks-image"
+          src="https://miro.medium.com/max/1838/1*N41l5WjEFRSR6fR6USWuYg.jpeg"
+          alt="thanks"
+        />
+      </div>
     </div>
   );
 };

@@ -86,17 +86,14 @@ export const NavBar = () => {
                 aria-labelledby="navbarDropdown"
               >
                 {" "}
-                <NavLink className="nav-category-regular" to="">
-                  Jeans
-                </NavLink>
                 <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      "nav-category-regular" + (isActive ? "" : "")
-                    }
-                    to=""
-                  >
-                    Shoes
+                  <NavLink className="nav-category-regular" to="">
+                    Mens apparel{" "}
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="nav-category-regular" to="">
+                    Womens apparel
                   </NavLink>
                 </li>
                 <li>
@@ -106,7 +103,37 @@ export const NavBar = () => {
                     }
                     to=""
                   >
-                    Hats
+                    T-shirts
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      "nav-category-regular" + (isActive ? "" : "")
+                    }
+                    to=""
+                  >
+                    Sweatshirts
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      "nav-category-regular" + (isActive ? "" : "")
+                    }
+                    to=""
+                  >
+                    Jackets
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      "nav-category-regular" + (isActive ? "" : "")
+                    }
+                    to=""
+                  >
+                    Pants
                   </NavLink>
                 </li>
               </div>
@@ -131,15 +158,6 @@ export const NavBar = () => {
               />
             </button>
           </form>
-          <button
-            onClick={() => {
-              fetch("/items")
-                .then((resp) => resp.json())
-                .then((data) => console.log(data));
-            }}
-          >
-            Testing
-          </button>
         </div>
       </nav>
     </div>
