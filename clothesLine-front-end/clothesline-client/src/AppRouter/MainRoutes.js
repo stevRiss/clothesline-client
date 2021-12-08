@@ -6,36 +6,33 @@ import Signup from "../signup/Signup";
 import "./mainScreen.css";
 import CardList from "../CardList/CardList";
 import Row from "../Row/Row";
-import NewSignup from "../NewSignup/NewSignup";
-
 
 const MainRoutes = () => {
-  const [currentUser, setCurrentUser] = useState('')
+  const [currentUser, setCurrentUser] = useState("");
 
-  const [authentication,setAuthentication ] = useState(false)
+  const [authentication, setAuthentication] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch("http://localhost:3000/me").then((r) => {
-      if(r.ok){
-        r.json().then((user)=> {
-          setCurrentUser(user) 
-          setAuthentication(true) 
+      if (r.ok) {
+        r.json().then((user) => {
+          setCurrentUser(user);
+          setAuthentication(true);
         });
       }
-    });  
+    });
   }, []);
 
-  
   return (
     <>
       <NavBar />
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<Signup setCurrentUser={setCurrentUser}/>}></Route>
-          <Route path="/item" element={<CardList currentUser={currentUser}/>} />
-          <Route path="/row" element={<Row currentUser ={currentUser}/>} />
-          <Route path="/signup" element={<NewSignup setCurrentUser={setCurrentUser} />} />
+          <Route path="/signin" element={<Signup />}></Route>
+          <Route path="/item" element={<CardList />} />
+          <Route path="/row" element={<Row />} />
+          <Route path="/row" element={<Row />} />
         </Routes>
       </div>
     </>

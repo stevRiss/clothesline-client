@@ -1,15 +1,19 @@
-import React from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./navbar.css";
 
 export const NavBar = () => {
+  const [category, setCategory] = useState("");
   let navigate = useNavigate();
-
+  const handleCategoy = (e) => {
+    console.log(e.target.name);
+  };
   const handleSignin = () => {
     navigate("/signin", {
       replace: true,
     });
   };
+
   return (
     <div className="container-va">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -87,12 +91,23 @@ export const NavBar = () => {
               >
                 {" "}
                 <li>
-                  <NavLink className="nav-category-regular" to="">
+                  <NavLink
+                    className="nav-category-regular"
+                    to=""
+                    value={category}
+                    name="Mens apparel"
+                    onClick={(e) => handleCategoy(e)}
+                  >
                     Mens apparel{" "}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="nav-category-regular" to="">
+                  <NavLink
+                    className="nav-category-regular"
+                    to=""
+                    onClick={handleCategoy}
+                    name="category"
+                  >
                     Womens apparel
                   </NavLink>
                 </li>
@@ -102,6 +117,7 @@ export const NavBar = () => {
                       "nav-category-regular" + (isActive ? "" : "")
                     }
                     to=""
+                    onClick={handleCategoy}
                   >
                     T-shirts
                   </NavLink>
@@ -112,6 +128,7 @@ export const NavBar = () => {
                       "nav-category-regular" + (isActive ? "" : "")
                     }
                     to=""
+                    onClick={handleCategoy}
                   >
                     Sweatshirts
                   </NavLink>
@@ -122,6 +139,7 @@ export const NavBar = () => {
                       "nav-category-regular" + (isActive ? "" : "")
                     }
                     to=""
+                    onClick={handleCategoy}
                   >
                     Jackets
                   </NavLink>
@@ -132,6 +150,7 @@ export const NavBar = () => {
                       "nav-category-regular" + (isActive ? "" : "")
                     }
                     to=""
+                    onClick={handleCategoy}
                   >
                     Pants
                   </NavLink>

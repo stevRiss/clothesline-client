@@ -1,6 +1,7 @@
 .signScreen {
   border-radius: 10px;
-  max-width: 600px;
+  width: 600px;
+  height: 600px;
   padding: 70px;
   margin-top: 150px;
   margin-left: auto;
