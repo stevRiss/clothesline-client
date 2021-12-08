@@ -3,12 +3,41 @@ import "./signup.css";
 import { useNavigate } from "react-router";
 import react, { useState } from "react";
 
-const SignInScreen = () => {
+const SignInScreen = ({setCurrentUser}) => {
+
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
-  const handleSingIn = () => {
-    navigate("/home", { replace: true });
+
+
+  const handleSingIn = (e) => {
+
+    e.preventDefault();
+    const refs = {email: emailRef.current.value, passwordRef: passwordRef.current.value}
+
+    fetch("http://localhost:3000/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(refs),
+      })
+
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          setCurrentUser(user);
+        });
+      } else {
+        r.json().then((errors) => {
+          console.error(errors);
+        });
+      }
+    });
+
+
+    navigate("/me", { replace: true });
   };
   
 
