@@ -1,19 +1,20 @@
 import React from "react";
 import "./cards.css";
 
-const Cards = () => {
+const Cards = ({item}) => {
   return (
     <div className="container">
       {/* <div className="row"> */}
         <div className="details-product">
           <img
-            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=80"
+            src={item.image}
             alt="testing"
           />
           <div className="description-product">
-            <h1>Name of the product</h1>
-            <h2>Size:</h2>
-            <h3>Colors available:</h3>
+            <h1>{item.name}</h1>
+            <h2>{item.size}</h2>
+            <h3>{item.color}</h3>
+            <h2>{item.price}</h2>
 
             <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
               <i class="fas fa-shopping-cart pr-2"></i>Add to cart
@@ -24,7 +25,7 @@ const Cards = () => {
           </div>
           
           <div className="seller-details">
-            <h3>Seller Name</h3>
+            <h3>{item.seller}</h3>
             <p>
               Nostrud tempor deserunt qui elit voluptate occaecat deserunt est
               qui minim aliquip ea. Proident nostrud sint ex labore minim minim

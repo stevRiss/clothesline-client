@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import "./signup.css";
 import { useNavigate } from "react-router";
+import react, { useState } from "react";
 
 const SignInScreen = () => {
   const emailRef = useRef(null);
@@ -9,6 +10,7 @@ const SignInScreen = () => {
   const handleSingIn = () => {
     navigate("/home", { replace: true });
   };
+  
 
   return (
     <header className="signScreen">
@@ -24,6 +26,7 @@ const SignInScreen = () => {
           <span className="signUp_color_gray">Welcome? </span>{" "}
           <span
             className="signupScreen_link"
+
             onClick={() => {
               console.log("register");
             }}
