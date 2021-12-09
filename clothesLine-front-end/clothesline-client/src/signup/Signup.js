@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./signup.css";
 import { useNavigate } from "react-router";
 
-const SignInScreen = ({ setCurrentUser }) => {
+const SignInScreen = ({ setCurrentUser, setAuthentication }) => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
@@ -25,6 +25,7 @@ const SignInScreen = ({ setCurrentUser }) => {
       if (r.ok) {
         r.json().then((user) => {
           setCurrentUser(user);
+          setAuthentication((e) => !e)
         });
       } else {
         r.json().then((errors) => {
@@ -33,7 +34,7 @@ const SignInScreen = ({ setCurrentUser }) => {
       }
     });
 
-    navigate("/me", { replace: true });
+    navigate("/", { replace: true });
   };
 
   const handleRegister = () => {

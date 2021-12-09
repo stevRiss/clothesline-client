@@ -6,7 +6,7 @@ const SortCategories = ({ category }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/categories")
+    fetch("/categories")
       .then((r) => r.json())
       .then((data) => {
         setItems(data);

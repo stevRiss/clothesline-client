@@ -11,20 +11,20 @@ const Row = ({ item, setView }) => {
 
   }
   return (
-    <div class="reduce-row-size">
-      <div class="container d-flex justify-content-center">
-        <div class="card p-2">
-          <div class="p-info px-3 py-3">
+    <div className="reduce-row-size">
+      <div className="container d-flex justify-content-center">
+        <div className="card p-2">
+          <div className="p-info px-3 py-3">
             <div>
-              <h4 class="mb-0">
+              <h4 className="mb-0">
                 <span className="name-images">{item.name}</span>
               </h4>
             </div>
-            <div class="p-price d-flex flex-row">
+            <div className="p-price d-flex flex-row">
               <h1 className="price-item">${item.price}</h1>
             </div>
           </div>
-          <div class="text-center p-image">
+          <div className="text-center p-image">
             {" "}
             <img
               className="row-images-resize"
@@ -32,14 +32,14 @@ const Row = ({ item, setView }) => {
               alt="air"
             />{" "}
           </div>
-          <div class="p-about">
+          <div className="p-about">
             <h3>Size: {item.size}</h3>
             <h3>Color: {item.color}</h3>
           </div>
-          <div class="buttons d-flex flex-row gap-3 px-3">
+          <div className="buttons d-flex flex-row gap-3 px-3">
             {" "}
-            <button class="btn-sign btn-view" onClick = {handleView}>View</button>{" "}
-            <button class="btn-sign btn-buynow">Buy Now</button>{" "}
+            <button className="btn-sign btn-view" onClick = {handleView}>View</button>{" "}
+            <button className="btn-sign btn-buynow">Buy Now</button>{" "}
           </div>
         </div>
       </div>

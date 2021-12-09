@@ -14,22 +14,40 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
     });
   };
 
-  const handleLogOut = () => {
-    fetch('/logout', {
-      method: 'DELETE',
-
-    }).then(res => {
-      if (res.ok) {
-        setCurrentUser(null)
-        setAuthentication(false)
-      }
-    })
-
-    navigate("/", {
-      replace: true,
-    });
-    
+  const handleLogout = () => {
+    fetch('/logout', {method: "DELETE"})
+    .then(res => {
+          if (res.ok) {
+            setCurrentUser(null)
+            setAuthentication(false)
+          }
+        })
   }
+  // const handleLogOut = (e) => {
+  //   console.log("hello")
+  //   // e.preventDefault()
+
+  //   fetch('/logout', {
+  //     method: 'DELETE',
+
+  //   }).then(res => {
+  //     if (res.ok) {
+  //       setCurrentUser(null)
+  //     }
+  //       console.log(setCurrentUser)
+  //       if (res.ok) {
+  //         setCurrentUser(user);
+  //       }else{
+  //         console.log("no user")
+  //       }
+  //       console.log('hi')
+
+  //       setAuthentication(false)
+  //     }
+  //   })
+  //   navigate("/", {replace: true,});
+    
+  // }
 
   return (
     <div className="container-va">
@@ -87,7 +105,7 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                 />
               </NavLink>
             </li>
-            <li className="nav-item dropdown">
+            <ul className="nav-item dropdown">
               <NavLink
                 className={({ isActive }) =>
                   "nav-link dropdown-toggle" + (isActive ? " active" : "")
@@ -176,7 +194,7 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                   </NavLink>
                 </li>
               </div>
-            </li>
+            </ul>
           </ul>
           <img
             className="cart-img"
@@ -195,7 +213,9 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
               Search
             </button>
 
-            {authentication ? 
+            
+          </form>
+          {authentication ? 
               <button className="btn-sign" type="button">Welcome Sriss22!</button>
               
               :
@@ -208,8 +228,8 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                 />
               </button>
             }
-            <button onClick ={handleLogOut}>LogOut</button>
-          </form>
+            <button onClick ={handleLogout}>LogOut</button>
+
         </div>
       </nav>
     </div>

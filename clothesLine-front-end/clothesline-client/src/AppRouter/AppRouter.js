@@ -11,13 +11,20 @@ const AppRouter = () => {
   const [authentication, setAuthentication] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/me").then((r) => {
+    fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setCurrentUser(user);
-          console.log(user)
-          setAuthentication(true);
-          console.log(authentication)
+          if (user) {
+
+
+            setCurrentUser(user);
+          }else{
+            console.log("no user")
+          }
+          
+          // console.log(setCurrentUser)
+          // setAuthentication(true);
+          // console.log(authentication)
         });
       }
     });
@@ -30,7 +37,7 @@ const AppRouter = () => {
   return (
     <>
       <Router>
-        {authentication ? <MainRoutes currentUser={currentUser} setAuthentication={setAuthentication} authentication={authentication} setCurrentUser={setCurrentUser} /> : <LoggedOut authentication={authentication} setCurrentUser={setCurrentUser} />} 
+        {authentication ? <MainRoutes currentUser={currentUser} setAuthentication={setAuthentication} authentication={authentication} setCurrentUser={setCurrentUser} /> : <LoggedOut authentication={authentication} setCurrentUser={setCurrentUser} setAuthentication={setAuthentication}/>} 
       </Router>
     </>
   );

@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "./newsign.css";
 import { useNavigate } from "react-router";
 
-const NewSignup = ({setCurrentUser}) => {
+const NewSignup = ({setCurrentUser, setAuthentication }) => {
   const userRef = useRef(null)
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -13,7 +13,7 @@ const NewSignup = ({setCurrentUser}) => {
   const handleSingIn = (e) => {
     e.preventDefault();
     const credentials = {username: userRef.current.value, email: emailRef.current.value, password: passwordRef.current.value}
-    fetch("http://localhost:3000/users", {
+    fetch("/users", {
       method: "POST",
 
       headers: {
@@ -27,6 +27,7 @@ const NewSignup = ({setCurrentUser}) => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
+          setAuthentication((e) => !e)
           alert("new user created!")
         });
       } else {
@@ -37,7 +38,7 @@ const NewSignup = ({setCurrentUser}) => {
       }
     });
     
-    navigate("/me", { replace: true });
+    navigate("/", { replace: true });
   };
 
   // const handleSingIn = () => {
