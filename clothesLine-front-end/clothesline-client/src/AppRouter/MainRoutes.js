@@ -29,6 +29,7 @@ const MainRoutes = ({
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
         setAuthentication={setAuthentication}
+        setCategory={setCategory}
       />
       <div className="container">
         <Routes>

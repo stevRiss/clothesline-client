@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./navbar.css";
 
-export const NavBar = ({setAuthentication,authentication, currentUser, setCurrentUser}) => {
-  const [category, setCategory] = useState("");
+export const NavBar = ({
+  setAuthentication,
+  authentication,
+  currentUser,
+  setCurrentUser,
+  setCategory,
+}) => {
   let navigate = useNavigate();
   const handleCategoy = (e) => {
+    console.log(e.target.name);
     setCategory(e.target.name);
   };
   const handleSignin = () => {
@@ -15,21 +21,19 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
   };
 
   const handleLogOut = () => {
-    fetch('/logout', {
-      method: 'DELETE',
-
-    }).then(res => {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then((res) => {
       if (res.ok) {
-        setCurrentUser(null)
-        setAuthentication(false)
+        setCurrentUser(null);
+        setAuthentication(false);
       }
-    })
+    });
 
     navigate("/", {
       replace: true,
     });
-    
-  }
+  };
 
   return (
     <div className="container-va">
@@ -195,10 +199,11 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
               Search
             </button>
 
-            {authentication ? 
-              <button className="btn-sign" type="button">Welcome Sriss22!</button>
-              
-              :
+            {authentication ? (
+              <button className="btn-sign" type="button">
+                Welcome Sriss22!
+              </button>
+            ) : (
               <button className="btn-sign" type="button" onClick={handleSignin}>
                 Signin
                 <img
@@ -207,8 +212,8 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                   alt="icon-face"
                 />
               </button>
-            }
-            <button onClick ={handleLogOut}>LogOut</button>
+            )}
+            <button onClick={handleLogOut}>LogOut</button>
           </form>
         </div>
       </nav>
