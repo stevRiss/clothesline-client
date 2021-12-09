@@ -1,2 +1,0 @@
-# clothesline
-clothesline application

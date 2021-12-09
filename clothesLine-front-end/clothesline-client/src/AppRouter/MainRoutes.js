@@ -5,31 +5,53 @@ import Home from "../Home/Home";
 import Signup from "../signup/Signup";
 import "./mainScreen.css";
 import CardList from "../CardList/CardList";
+import Cards from "../CardList/Cards";
 import Row from "../Row/Row";
+import SortCategories from "../SortCategories/SortCategories";
 import NewSignup from "../NewSignup/NewSignup";
-import Cards from '../CardList/Cards'
 
-
-const MainRoutes = ({currentUser, setAuthentication ,authentication, setCurrentUser}) => {
-
+const MainRoutes = ({
+  currentUser,
+  setAuthentication,
+  authentication,
+  setCurrentUser,
+}) => {
   const [view, setView] = useState([]);
-
-  
+  const [category, setCategory] = useState("");
+  const handleCategory = () => {
+    return category;
+  };
 
   return (
     <>
-      <NavBar authentication={authentication} currentUser={currentUser} setCurrentUser={setCurrentUser} setAuthentication={setAuthentication}/>
+      <NavBar
+        authentication={authentication}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        setAuthentication={setAuthentication}
+      />
       <div className="container">
         <Routes>
           <Route path="/" element={<Home currentUser={currentUser} />} />
-          <Route path="/signin" element={<Signup setCurrentUser={setCurrentUser} />}></Route>
-          <Route path="/item" element={<Cards currentUser={currentUser} view={view} />} />
-          <Route path="/signup" element={<NewSignup setCurrentUser={setCurrentUser} />} />
-          <Route path="/row" element={<Row currentUser={currentUser} setView={setView}/>} />
+          <Route
+            path="/signin"
+            element={<Signup setCurrentUser={setCurrentUser} />}
+          ></Route>
+          <Route
+            path="/item"
+            element={<Cards currentUser={currentUser} view={view} />}
+          />
+          <Route
+            path="/signup"
+            element={<NewSignup setCurrentUser={setCurrentUser} />}
+          />
+          <Route
+            path="/row"
+            element={<Row currentUser={currentUser} setView={setView} />}
+          />
         </Routes>
       </div>
     </>
   );
 };
-
 export default MainRoutes;

@@ -1,0 +1,8 @@
+.items {
+    width: 390px;
+    display: grid;
+    grid-gap: 0.8rem;
+    margin-left: 10px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  

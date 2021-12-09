@@ -9,7 +9,24 @@
   border: none;
   margin-right: 0.7rem;
 }
+.cart-img {
+  margin-right: 20px;
+  cursor: pointer;
+}
 
+.cart-img:hover {
+  transform: scale(1.5);
+}
+
+/* .hidden-cart {
+  display: none;
+}
+
+.cart-img:hover + .hidden-cart {
+  display: block;
+  color: green;
+  font-size: 25px;
+} */
 .btn-sign {
   background-color: #000000;
   background: linear-gradient(147deg, #000000 0%, #2c3e50 74%);

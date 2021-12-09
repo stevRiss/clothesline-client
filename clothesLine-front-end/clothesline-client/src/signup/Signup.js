@@ -1,19 +1,18 @@
 import React, { useRef } from "react";
 import "./signup.css";
 import { useNavigate } from "react-router";
-import react, { useState } from "react";
 
-const SignInScreen = ({setCurrentUser}) => {
-
+const SignInScreen = ({ setCurrentUser }) => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
 
-
   const handleSingIn = (e) => {
-
     e.preventDefault();
-    const refs = {email: emailRef.current.value, password: passwordRef.current.value}
+    const refs = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
 
     fetch("/signin", {
       method: "POST",
@@ -22,9 +21,7 @@ const SignInScreen = ({setCurrentUser}) => {
       },
 
       body: JSON.stringify(refs),
-      })
-
-    .then((r) => {
+    }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
           setCurrentUser(user);
@@ -36,10 +33,8 @@ const SignInScreen = ({setCurrentUser}) => {
       }
     });
 
-
-    navigate("/", { replace: true });
+    navigate("/me", { replace: true });
   };
-  
 
   const handleRegister = () => {
     navigate("/signup", { replace: true });
@@ -51,7 +46,7 @@ const SignInScreen = ({setCurrentUser}) => {
         <h1>Login</h1>
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="Password" />
-        <button type="submit" onClick ={handleSingIn}>
+        <button type="submit" onClick={handleSingIn}>
           Login
         </button>
 

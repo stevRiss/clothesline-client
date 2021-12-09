@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./navbar.css";
 
 export const NavBar = ({setAuthentication,authentication, currentUser, setCurrentUser}) => {
   const [category, setCategory] = useState("");
   let navigate = useNavigate();
   const handleCategoy = (e) => {
-    console.log(e.target.name);
+    setCategory(e.target.name);
   };
   const handleSignin = () => {
     navigate("/signin", {
@@ -110,22 +110,21 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                 <li>
                   <NavLink
                     className="nav-category-regular"
-                    to=""
-                    value={category}
-                    name="Mens apparel"
+                    to={"/category/Mens"}
+                    name="Mens"
                     onClick={(e) => handleCategoy(e)}
                   >
-                    Mens apparel{" "}
+                    Mens{" "}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     className="nav-category-regular"
-                    to=""
+                    to="category/Womens"
                     onClick={handleCategoy}
-                    name="category"
+                    name="Womens"
                   >
-                    Womens apparel
+                    Womens
                   </NavLink>
                 </li>
                 <li>
@@ -133,7 +132,8 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                     className={({ isActive }) =>
                       "nav-category-regular" + (isActive ? "" : "")
                     }
-                    to=""
+                    name="T-shirts"
+                    to="category/T-shirts"
                     onClick={handleCategoy}
                   >
                     T-shirts
@@ -144,7 +144,8 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                     className={({ isActive }) =>
                       "nav-category-regular" + (isActive ? "" : "")
                     }
-                    to=""
+                    name="Sweatshirts"
+                    to="category/Sweatshirts"
                     onClick={handleCategoy}
                   >
                     Sweatshirts
@@ -155,7 +156,8 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                     className={({ isActive }) =>
                       "nav-category-regular" + (isActive ? "" : "")
                     }
-                    to=""
+                    name="Jackets"
+                    to="category/Jackets"
                     onClick={handleCategoy}
                   >
                     Jackets
@@ -166,7 +168,8 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
                     className={({ isActive }) =>
                       "nav-category-regular" + (isActive ? "" : "")
                     }
-                    to=""
+                    name="Pants"
+                    to="category/Pants"
                     onClick={handleCategoy}
                   >
                     Pants
@@ -175,6 +178,12 @@ export const NavBar = ({setAuthentication,authentication, currentUser, setCurren
               </div>
             </li>
           </ul>
+          <img
+            className="cart-img"
+            src="https://img.icons8.com/ios-glyphs/30/000000/shopping-cart--v1.png"
+            alt="cart"
+          />
+
           <form className="form-inline my-2 my-lg-0">
             <input
               className="form-control mr-sm-2"
