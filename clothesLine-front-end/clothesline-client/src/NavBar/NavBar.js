@@ -20,20 +20,39 @@ export const NavBar = ({
     });
   };
 
-  const handleLogOut = () => {
-    fetch("/logout", {
-      method: "DELETE",
-    }).then((res) => {
+  const handleLogout = () => {
+    fetch("/logout", { method: "DELETE" }).then((res) => {
       if (res.ok) {
         setCurrentUser(null);
         setAuthentication(false);
       }
     });
-
-    navigate("/", {
-      replace: true,
-    });
   };
+  // const handleLogOut = (e) => {
+  //   console.log("hello")
+  //   // e.preventDefault()
+
+  //   fetch('/logout', {
+  //     method: 'DELETE',
+
+  //   }).then(res => {
+  //     if (res.ok) {
+  //       setCurrentUser(null)
+  //     }
+  //       console.log(setCurrentUser)
+  //       if (res.ok) {
+  //         setCurrentUser(user);
+  //       }else{
+  //         console.log("no user")
+  //       }
+  //       console.log('hi')
+
+  //       setAuthentication(false)
+  //     }
+  //   })
+  //   navigate("/", {replace: true,});
+
+  // }
 
   return (
     <div className="container-va">
@@ -91,7 +110,7 @@ export const NavBar = ({
                 />
               </NavLink>
             </li>
-            <li className="nav-item dropdown">
+            <ul className="nav-item dropdown">
               <NavLink
                 className={({ isActive }) =>
                   "nav-link dropdown-toggle" + (isActive ? " active" : "")
@@ -180,7 +199,7 @@ export const NavBar = ({
                   </NavLink>
                 </li>
               </div>
-            </li>
+            </ul>
           </ul>
           <img
             className="cart-img"
@@ -198,23 +217,22 @@ export const NavBar = ({
             <button className="btn-sign" type="submit">
               Search
             </button>
-
-            {authentication ? (
-              <button className="btn-sign" type="button">
-                Welcome Sriss22!
-              </button>
-            ) : (
-              <button className="btn-sign" type="button" onClick={handleSignin}>
-                Signin
-                <img
-                  src="https://img.icons8.com/ios/50/000000/user--v2.png"
-                  className="btn-user-image"
-                  alt="icon-face"
-                />
-              </button>
-            )}
-            <button onClick={handleLogOut}>LogOut</button>
           </form>
+          {authentication ? (
+            <button className="btn-sign" type="button">
+              Welcome Sriss22!
+            </button>
+          ) : (
+            <button className="btn-sign" type="button" onClick={handleSignin}>
+              Signin
+              <img
+                src="https://img.icons8.com/ios/50/000000/user--v2.png"
+                className="btn-user-image"
+                alt="icon-face"
+              />
+            </button>
+          )}
+          <button onClick={handleLogout}>LogOut</button>
         </div>
       </nav>
     </div>

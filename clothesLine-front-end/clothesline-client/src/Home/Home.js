@@ -16,7 +16,7 @@ const Home = () => {
       });
   }, []);
   return (
-    <div class="items">
+    <div className="items">
       {items.map((item) => (
         <Row key={item.id} item={item} />
       ))}

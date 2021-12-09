@@ -14,10 +14,15 @@ const AppRouter = () => {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setCurrentUser(user);
-          console.log(user);
-          setAuthentication(true);
-          console.log(authentication);
+          if (user) {
+            setCurrentUser(user);
+          } else {
+            console.log("no user");
+          }
+
+          // console.log(setCurrentUser)
+          // setAuthentication(true);
+          // console.log(authentication)
         });
       }
     });
@@ -41,6 +46,7 @@ const AppRouter = () => {
           <LoggedOut
             authentication={authentication}
             setCurrentUser={setCurrentUser}
+            setAuthentication={setAuthentication}
           />
         )}
       </Router>

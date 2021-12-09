@@ -6,16 +6,16 @@ import Signup from "../signup/Signup";
 import Home from "../Home/Home";
 
 
-const LoggedOut = ({setCurrentUser, authentication}) => {
+const LoggedOut = ({setCurrentUser,setAuthentication, authentication}) => {
 
     return (
 
         <div>
-             <NavBar authentication={authentication}/>
+             <NavBar authentication={authentication} setCurrentUser={setCurrentUser}/>
              <Routes>
                 <Route path="/" element={<Home  />} />
-                <Route path="/signin" element={<Signup setCurrentUser={setCurrentUser} />}></Route>
-                <Route path="/signup" element={<NewSignup setCurrentUser={setCurrentUser} />} />
+                <Route path="/signin" element={<Signup setAuthentication={setAuthentication} setCurrentUser={setCurrentUser} />}></Route>
+                <Route path="/signup" element={<NewSignup setAuthentication={setAuthentication} setCurrentUser={setCurrentUser} />} />
 
              </Routes>
         </div>

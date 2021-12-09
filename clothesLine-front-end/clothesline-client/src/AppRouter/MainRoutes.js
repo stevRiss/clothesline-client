@@ -16,6 +16,7 @@ const MainRoutes = ({
   authentication,
   setCurrentUser,
 }) => {
+
   const [view, setView] = useState([]);
   const [category, setCategory] = useState("");
   const handleCategory = () => {
@@ -36,7 +37,7 @@ const MainRoutes = ({
           <Route path="/" element={<Home currentUser={currentUser} />} />
           <Route
             path="/signin"
-            element={<Signup setCurrentUser={setCurrentUser} />}
+            element={<Signup setCurrentUser={setCurrentUser} setAuthentication={setAuthentication} />}
           ></Route>
           <Route
             path="/item"
@@ -44,7 +45,7 @@ const MainRoutes = ({
           />
           <Route
             path="/signup"
-            element={<NewSignup setCurrentUser={setCurrentUser} />}
+            element={<NewSignup setCurrentUser={setCurrentUser} setAuthentication={setAuthentication} />}
           />
           <Route
             path="/row"
