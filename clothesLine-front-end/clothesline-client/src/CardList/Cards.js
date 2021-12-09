@@ -2,7 +2,7 @@ import React from "react";
 import "./cards.css";
 import "../NavBar/navbar.css";
 
-const Cards = ({item}) => {
+const Cards = ({item, view}) => {
   return (
     <div class="container">
       <div class="col-md-12">
@@ -19,7 +19,7 @@ const Cards = ({item}) => {
             </div>
             <div class="col-md-6">
               <h4 class="pro-d-title">
-                <h1 class="">Leopard Shirt Dress</h1>
+                <h1 class="">{view.name}</h1>
               </h4>
               <p>
                 Praesent ac condimentum felis. Nulla at nisl orci, at dignissim

@@ -1,7 +1,15 @@
 import React from "react";
 import "./row.css";
+import { useNavigate } from "react-router";
 
-const Row = ({ item }) => {
+const Row = ({ item, setView }) => {
+  const navigate = useNavigate();
+
+  const handleView = (e) => {
+    
+    navigate("/item", { replace: true });
+
+  }
   return (
     <div class="reduce-row-size">
       <div class="container d-flex justify-content-center">
@@ -30,7 +38,7 @@ const Row = ({ item }) => {
           </div>
           <div class="buttons d-flex flex-row gap-3 px-3">
             {" "}
-            <button class="btn-sign btn-view">View</button>{" "}
+            <button class="btn-sign btn-view" onClick = {handleView}>View</button>{" "}
             <button class="btn-sign btn-buynow">Buy Now</button>{" "}
           </div>
         </div>

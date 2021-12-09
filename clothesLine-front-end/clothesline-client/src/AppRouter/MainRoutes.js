@@ -6,33 +6,26 @@ import Signup from "../signup/Signup";
 import "./mainScreen.css";
 import CardList from "../CardList/CardList";
 import Row from "../Row/Row";
+import NewSignup from "../NewSignup/NewSignup";
+import Cards from '../CardList/Cards'
 
-const MainRoutes = () => {
-  const [currentUser, setCurrentUser] = useState("");
 
-  const [authentication, setAuthentication] = useState(false);
+const MainRoutes = ({currentUser, setAuthentication ,authentication, setCurrentUser}) => {
 
-  useEffect(() => {
-    fetch("http://localhost:3000/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => {
-          setCurrentUser(user);
-          setAuthentication(true);
-        });
-      }
-    });
-  }, []);
+  const [view, setView] = useState([]);
+
+  
 
   return (
     <>
-      <NavBar />
+      <NavBar authentication={authentication} currentUser={currentUser} setCurrentUser={setCurrentUser} setAuthentication={setAuthentication}/>
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signin" element={<Signup />}></Route>
-          <Route path="/item" element={<CardList />} />
-          <Route path="/row" element={<Row />} />
-          <Route path="/row" element={<Row />} />
+          <Route path="/" element={<Home currentUser={currentUser} />} />
+          <Route path="/signin" element={<Signup setCurrentUser={setCurrentUser} />}></Route>
+          <Route path="/item" element={<Cards currentUser={currentUser} view={view} />} />
+          <Route path="/signup" element={<NewSignup setCurrentUser={setCurrentUser} />} />
+          <Route path="/row" element={<Row currentUser={currentUser} setView={setView}/>} />
         </Routes>
       </div>
     </>

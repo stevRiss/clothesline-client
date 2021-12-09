@@ -61,7 +61,7 @@ const NewSignup = ({setCurrentUser}) => {
           placeholder="Password Confirmation"
           type="Password"
         />
-        <button type="submit" onClick={handleSingIn}>
+        <button type="submit" onClick ={handleSingIn}>
           Create Account
         </button>
       </form>

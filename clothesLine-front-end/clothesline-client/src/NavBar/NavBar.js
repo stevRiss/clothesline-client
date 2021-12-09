@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./navbar.css";
 
-export const NavBar = () => {
+export const NavBar = ({setAuthentication,authentication, currentUser, setCurrentUser}) => {
   const [category, setCategory] = useState("");
   let navigate = useNavigate();
   const handleCategoy = (e) => {
@@ -13,6 +13,23 @@ export const NavBar = () => {
       replace: true,
     });
   };
+
+  const handleLogOut = () => {
+    fetch('/logout', {
+      method: 'DELETE',
+
+    }).then(res => {
+      if (res.ok) {
+        setCurrentUser(null)
+        setAuthentication(false)
+      }
+    })
+
+    navigate("/", {
+      replace: true,
+    });
+    
+  }
 
   return (
     <div className="container-va">
@@ -168,14 +185,21 @@ export const NavBar = () => {
             <button className="btn-sign" type="submit">
               Search
             </button>
-            <button className="btn-sign" type="button" onClick={handleSignin}>
-              Signin
-              <img
-                src="https://img.icons8.com/ios/50/000000/user--v2.png"
-                className="btn-user-image"
-                alt="icon-face"
-              />
-            </button>
+
+            {authentication ? 
+              <button className="btn-sign" type="button">Welcome Sriss22!</button>
+              
+              :
+              <button className="btn-sign" type="button" onClick={handleSignin}>
+                Signin
+                <img
+                  src="https://img.icons8.com/ios/50/000000/user--v2.png"
+                  className="btn-user-image"
+                  alt="icon-face"
+                />
+              </button>
+            }
+            <button onClick ={handleLogOut}>LogOut</button>
           </form>
         </div>
       </nav>

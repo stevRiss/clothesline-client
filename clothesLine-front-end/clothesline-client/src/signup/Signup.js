@@ -13,9 +13,9 @@ const SignInScreen = ({setCurrentUser}) => {
   const handleSingIn = (e) => {
 
     e.preventDefault();
-    const refs = {email: emailRef.current.value, passwordRef: passwordRef.current.value}
+    const refs = {email: emailRef.current.value, password: passwordRef.current.value}
 
-    fetch("http://localhost:3000/signin", {
+    fetch("/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const SignInScreen = ({setCurrentUser}) => {
     });
 
 
-    navigate("/me", { replace: true });
+    navigate("/", { replace: true });
   };
   
 
@@ -51,7 +51,7 @@ const SignInScreen = ({setCurrentUser}) => {
         <h1>Login</h1>
         <input ref={emailRef} placeholder="Email" type="email" />
         <input ref={passwordRef} placeholder="Password" type="Password" />
-        <button type="submit" onClick={handleSingIn}>
+        <button type="submit" onClick ={handleSingIn}>
           Login
         </button>
 

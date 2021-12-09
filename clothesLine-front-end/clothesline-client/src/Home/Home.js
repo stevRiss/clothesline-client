@@ -5,9 +5,10 @@ import "./home.css";
 
 const Home = () => {
   const [items, setItems] = useState([]);
+  // const [view, setView] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/items")
+    fetch("/items")
       .then((r) => r.json())
       .then((data) => {
         setItems(data);
