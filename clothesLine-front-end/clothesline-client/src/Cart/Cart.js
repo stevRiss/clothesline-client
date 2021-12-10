@@ -38,7 +38,7 @@ const Cart = () => {
                 </a>
                 <a to="#">+</a>{" "}
               </div>
-              <div className="col">44.00</div>
+              <div className="col">$44.00</div>
             </div>
           </div>
           <div className="row">
@@ -61,7 +61,7 @@ const Cart = () => {
                 </a>
                 <a to="#">+</a>{" "}
               </div>
-              <div className="col">44.00</div>
+              <div className="col">$44.00</div>
             </div>
           </div>
           <div className="row border-top border-bottom">
