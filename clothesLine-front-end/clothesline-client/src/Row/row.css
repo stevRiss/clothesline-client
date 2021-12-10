@@ -57,7 +57,9 @@
   font-size: 1.3rem;
   padding: 10px 10px 10px 10px;
 }
-
+img {
+  border-style:solid;
+}
 .name-images {
   font-size: 1.3rem;
   font-weight: 200px;

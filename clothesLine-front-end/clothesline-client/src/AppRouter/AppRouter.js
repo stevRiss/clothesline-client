@@ -18,6 +18,7 @@ const AppRouter = () => {
             setCurrentUser(user);
           } else {
             console.log("no user");
+            alert("please sign in")
           }
 
           // console.log(setCurrentUser)

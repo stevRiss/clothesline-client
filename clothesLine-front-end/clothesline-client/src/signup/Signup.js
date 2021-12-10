@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./signup.css";
 import { useNavigate } from "react-router";
 
-const SignInScreen = ({ setCurrentUser, setAuthentication }) => {
+const SignInScreen = ({ setCurrentUser, setAuthentication, authentication }) => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const navigate = useNavigate();
@@ -26,15 +26,22 @@ const SignInScreen = ({ setCurrentUser, setAuthentication }) => {
         r.json().then((user) => {
           setCurrentUser(user);
           setAuthentication((e) => !e)
+          navigate("/", { replace: true });
+
         });
       } else {
         r.json().then((errors) => {
           console.error(errors);
+          alert("invalid login credentials")
         });
       }
     });
 
-    navigate("/", { replace: true });
+  //   if (authentication == true ){
+  //   }else{
+
+  //   }
+
   };
 
   const handleRegister = () => {

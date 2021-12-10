@@ -28,7 +28,10 @@ const NewSignup = ({setCurrentUser, setAuthentication }) => {
         res.json().then((user) => {
           setCurrentUser(user);
           setAuthentication((e) => !e)
+
           alert("new user created!")
+          navigate("/", { replace: true });
+
         });
       } else {
         res.json().then((errors) => {
@@ -38,7 +41,6 @@ const NewSignup = ({setCurrentUser, setAuthentication }) => {
       }
     });
     
-    navigate("/", { replace: true });
   };
 
   // const handleSingIn = () => {

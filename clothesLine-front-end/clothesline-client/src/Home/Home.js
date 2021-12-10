@@ -3,8 +3,9 @@ import Row from "../Row/Row.js";
 import "./home.css";
 // import "./row.css";
 
-const Home = () => {
+const Home = ({currentUser}) => {
   const [items, setItems] = useState([]);
+
   // const [view, setView] = useState([]);
 
   useEffect(() => {
@@ -12,7 +13,7 @@ const Home = () => {
       .then((r) => r.json())
       .then((data) => {
         setItems(data);
-        console.log(data);
+        // console.log(currentUser);
       });
   }, []);
   return (

@@ -9,15 +9,18 @@ import Cards from "../CardList/Cards";
 import Row from "../Row/Row";
 import SortCategories from "../SortCategories/SortCategories";
 import NewSignup from "../NewSignup/NewSignup";
+import AccountDetails from "../NavBar/AccountDetails";
 
 const MainRoutes = ({
   currentUser,
   setAuthentication,
   authentication,
   setCurrentUser,
+  
 }) => {
 
   const [view, setView] = useState([]);
+
   const [category, setCategory] = useState("");
   const handleCategory = () => {
     return category;
@@ -31,14 +34,19 @@ const MainRoutes = ({
         setCurrentUser={setCurrentUser}
         setAuthentication={setAuthentication}
         setCategory={setCategory}
+        
       />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home currentUser={currentUser} />} />
+          <Route path="/" element={<Home currentUser={currentUser}  />} />
           <Route
             path="/signin"
-            element={<Signup setCurrentUser={setCurrentUser} setAuthentication={setAuthentication} />}
+            element={<Signup setCurrentUser={setCurrentUser} authentication={authentication} setAuthentication={setAuthentication} />}
           ></Route>
+          <Route
+            path="/account"
+            element={<AccountDetails currentUser={currentUser} />}
+          />
           <Route
             path="/item"
             element={<Cards currentUser={currentUser} view={view} />}
@@ -47,6 +55,7 @@ const MainRoutes = ({
             path="/signup"
             element={<NewSignup setCurrentUser={setCurrentUser} setAuthentication={setAuthentication} />}
           />
+          
           <Route
             path="/row"
             element={<Row currentUser={currentUser} setView={setView} />}

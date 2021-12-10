@@ -19,7 +19,7 @@ const Cards = ({item, view}) => {
             </div>
             <div className="col-md-6">
               <h4 className="pro-d-title">
-                <h1 className="">{view.name}</h1>
+                <h1 className=""></h1>
               </h4>
               <p>
                 Praesent ac condimentum felis. Nulla at nisl orci, at dignissim
