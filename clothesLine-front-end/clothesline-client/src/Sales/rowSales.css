@@ -3,8 +3,8 @@
 }
 
 /* .reduce-row-size:hover {
-  transform: scale(1);
-} */
+    transform: scale(1);
+  } */
 
 .p-about > h3 {
   font-size: 1.3rem;
@@ -51,15 +51,20 @@
   transition: all 0.5s;
 }
 
-.price-item {
-  background-color: #fffcdc;
+.discount-img {
+  margin-left: 10px;
+  width: 30px;
+  margin-bottom: 4px;
+  margin-right: 5px;
+}
+
+#price-item-sales {
+  background-color: #ff5677;
   border-radius: 10px;
   font-size: 1.3rem;
   padding: 10px 10px 10px 10px;
 }
-img {
-  border-style: solid;
-}
+
 .name-images {
   font-size: 1.3rem;
   font-weight: 200px;

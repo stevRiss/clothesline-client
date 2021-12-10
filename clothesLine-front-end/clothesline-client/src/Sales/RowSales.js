@@ -1,9 +1,9 @@
 import React from "react";
-import "./row.css";
+import "./rowSales.css";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
-const Row = ({ item }) => {
+const RowSales = ({ item }) => {
   // const navigate = useNavigate();
 
   // const handleView = (e) => {
@@ -16,11 +16,11 @@ const Row = ({ item }) => {
           <div className="p-info px-3 py-3">
             <div>
               <h4 className="mb-0">
-                <span className="name-images">{item.name}</span>
+                <span className="name-images">{item.name} </span>
               </h4>
             </div>
-            <div className="p-price d-flex flex-row">
-              <h1 className="price-item">${item.price}</h1>
+            <div className="p-price d-flex flex-row discount-image">
+              <h1 id="price-item-sales">${Math.ceil(item.price * 0.75)}</h1>
             </div>
           </div>
           <div className="text-center p-image">
@@ -48,4 +48,4 @@ const Row = ({ item }) => {
   );
 };
 
-export default Row;
+export default RowSales;

@@ -4,15 +4,19 @@
   /* padding-top: 10px; */
   display: grid;
   /* display: inline-block; */
-  margin-top: 1rem;
+  margin-top: 3rem;
+  margin-left: 5rem;
+  margin-bottom: 2rem;
   /* display: flex; */
   /* align-items: center; */
   /* justify-content:center; */
 }
 
 .image-item {
+  margin-right: 0;
+
   width: 500px;
-  height: 350px;
+  height: 500px;
   border-radius: 0.8rem;
 }
 .side-div {
@@ -20,9 +24,10 @@
 }
 
 #thanks-image {
+  margin-top: 50px;
   position: relative;
-  margin-left: 40rem;
-  width: 600px;
+  margin-left: 60rem;
+  width: 800px;
   height: 600px;
   border-radius: 2rem;
   opacity: 0.5;

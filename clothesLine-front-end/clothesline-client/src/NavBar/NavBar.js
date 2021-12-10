@@ -1,22 +1,25 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import AccountDetails from "./AccountDetails";
+import React, { useState, useRef } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./navbar.css";
-import Row from "../Row/Row";
 
 export const NavBar = ({
   setAuthentication,
   authentication,
   currentUser,
   setCurrentUser,
-  setCategory,
+  setSearch,
 }) => {
+  const [navSearch, setNavSearch] = useState("");
   let navigate = useNavigate();
-  const [sales, setSales] = useState([])
 
-  const handleCategoy = (e) => {
+  const searchRef = useRef(null);
+  const handleSearch = () => {
+    const value = searchRef.current.value;
+    setSearch(value);
+  };
+
+  const handleCategory = (e) => {
     console.log(e.target.name);
-    setCategory(e.target.name);
   };
 
   const handleSignin = () => {
@@ -25,30 +28,26 @@ export const NavBar = ({
     });
   };
 
-  const fire = ( sail) => {
-    let saleArr = []
-    if(sail.price < 10){
-      saleArr.push(sail)
-      console.log(saleArr)
-      
-    } 
-    return(
+  const fire = (sail) => {
+    let saleArr = [];
+    if (sail.price < 10) {
+      saleArr.push(sail);
+      console.log(saleArr);
+    }
+    return (
       <div className="items">
-       {/* {alert(`the sale item of the day is: ${saleArr[0]}`)} */}
+        {/* {alert(`the sale item of the day is: ${saleArr[0]}`)} */}
       </div>
-    
-    
-    )
-  }
-  const handleSale = () => {
-    fetch("/items")
-        .then((r) => r.json())
-        .then((data) => {
-          setSales(data);
-          sales.filter(fire)
-
-        });
-    };
+    );
+  };
+  // const handleSale = () => {
+  //   fetch("/items")
+  //     .then((r) => r.json())
+  //     .then((data) => {
+  //       setSales(data);
+  //       sales.filter(fire);
+  //     });
+  // };
 
   const handleLogout = () => {
     fetch("/logout", { method: "DELETE" }).then((res) => {
@@ -56,62 +55,25 @@ export const NavBar = ({
         setAuthentication(false);
 
         setCurrentUser(null);
-      }else{
-        alert("not logged in")
+      } else {
+        alert("not logged in");
       }
     });
   };
 
   const handleHome = () => {
     navigate("/", { replace: true });
-
-  }
-  const handleDetails = () => {
-
-    
-    <NavLink className={({ isActive }) =>
-                  "nav-link dropdown-toggle" + (isActive ? " active" : "")
-                }
-                to=""
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Categories
-              </NavLink>
-  }
-  // const handleLogOut = (e) => {
-  //   console.log("hello")
-  //   // e.preventDefault()
-
-  //   fetch('/logout', {
-  //     method: 'DELETE',
-
-  //   }).then(res => {
-  //     if (res.ok) {
-  //       setCurrentUser(null)
-  //     }
-  //       console.log(setCurrentUser)
-  //       if (res.ok) {
-  //         setCurrentUser(user);
-  //       }else{
-  //         console.log("no user")
-  //       }
-  //       console.log('hi')
-
-  //       setAuthentication(false)
-  //     }
-  //   })
-  //   navigate("/", {replace: true,});
-
-  // }
+  };
 
   return (
     <div className="container-va">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <NavLink className="navbar-brand name-store" onClick={handleHome} id="title" to="/">
+        <NavLink
+          className="navbar-brand name-store"
+          onClick={handleHome}
+          id="title"
+          to="/"
+        >
           ClothesLine
         </NavLink>
         <button
@@ -151,18 +113,12 @@ export const NavBar = ({
 
             <li className="nav-item">
               <NavLink
-                onClick= {() => handleSale()}
                 className={({ isActive }) =>
                   "nav-link" + (isActive ? " active" : "")
                 }
-                to=""
+                to={"/sales"}
               >
                 Sales{" "}
-                <img
-                  className="fire-sales"
-                  src="https://img.icons8.com/ios-glyphs/30/000000/fire-element--v1.png"
-                  alt="icon-fire"
-                />
               </NavLink>
             </li>
             <ul className="nav-item dropdown">
@@ -190,7 +146,7 @@ export const NavBar = ({
                     className="nav-category-regular"
                     to={"/category/Mens"}
                     name="Mens"
-                    onClick={(e) => handleCategoy(e)}
+                    onClick={handleCategory}
                   >
                     Mens{" "}
                   </NavLink>
@@ -199,7 +155,7 @@ export const NavBar = ({
                   <NavLink
                     className="nav-category-regular"
                     to="category/Womens"
-                    onClick={handleCategoy}
+                    onClick={handleCategory}
                     name="Womens"
                   >
                     Womens
@@ -212,7 +168,7 @@ export const NavBar = ({
                     }
                     name="T-shirts"
                     to="category/T-shirts"
-                    onClick={handleCategoy}
+                    onClick={handleCategory}
                   >
                     T-shirts
                   </NavLink>
@@ -224,7 +180,7 @@ export const NavBar = ({
                     }
                     name="Sweatshirts"
                     to="category/Sweatshirts"
-                    onClick={handleCategoy}
+                    onClick={handleCategory}
                   >
                     Sweatshirts
                   </NavLink>
@@ -236,7 +192,7 @@ export const NavBar = ({
                     }
                     name="Jackets"
                     to="category/Jackets"
-                    onClick={handleCategoy}
+                    onClick={handleCategory}
                   >
                     Jackets
                   </NavLink>
@@ -248,7 +204,7 @@ export const NavBar = ({
                     }
                     name="Pants"
                     to="category/Pants"
-                    onClick={handleCategoy}
+                    onClick={(e) => handleCategory(e)}
                   >
                     Pants
                   </NavLink>
@@ -264,6 +220,8 @@ export const NavBar = ({
 
           <form className="form-inline my-2 my-lg-0">
             <input
+              ref={searchRef}
+              onChange={handleSearch}
               className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
@@ -275,10 +233,12 @@ export const NavBar = ({
           </form>
           {authentication ? (
             <div>
-              <button className="btn-sign" type="button" onClick={handleDetails}>
+              <button className="btn-sign" type="button">
                 Welcome: {currentUser.username}!
               </button>
-              <button className="btn-sign" type="button" onClick={handleLogout}>LogOut</button>
+              <button className="btn-sign" type="button" onClick={handleLogout}>
+                LogOut
+              </button>
             </div>
           ) : (
             <button className="btn-sign" type="button" onClick={handleSignin}>
@@ -290,7 +250,6 @@ export const NavBar = ({
               />
             </button>
           )}
-          
         </div>
       </nav>
     </div>

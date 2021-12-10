@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Row from "../Row/Row";
 import "./sortCategory.css";
+import { useParams } from "react-router-dom";
 
-const SortCategories = ({ category }) => {
+const SortCategories = () => {
   const [items, setItems] = useState([]);
+
+  let category_url = useParams();
+  const category = category_url.id;
+  console.log(category);
 
   useEffect(() => {
     fetch("/categories")
